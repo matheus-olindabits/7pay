@@ -3,7 +3,8 @@ import 'package:test_7pay/app/core/style/color.dart';
 import 'package:test_7pay/app/shared/widgets/spacing/divider_w.dart';
 
 class MainAppbarPage extends StatelessWidget implements PreferredSizeWidget {
-  const MainAppbarPage({super.key});
+  final VoidCallback callback;
+  const MainAppbarPage({super.key, required this.callback});
 
   @override
   Size get preferredSize => const Size.fromHeight(50);
@@ -29,9 +30,7 @@ class MainAppbarPage extends StatelessWidget implements PreferredSizeWidget {
             Icons.settings_outlined,
             color: Colors.white,
           ),
-          onPressed: () => {
-            //_scaffoldKey.currentState!.openEndDrawer(),
-          },
+          onPressed: () => callback(),
         ),
       ],
     );

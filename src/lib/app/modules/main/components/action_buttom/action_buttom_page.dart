@@ -4,7 +4,8 @@ import 'package:test_7pay/app/core/style/size.dart';
 import 'package:test_7pay/app/shared/widgets/spacing/divider_w.dart';
 
 class ActionButtomPage extends StatelessWidget {
-  const ActionButtomPage({super.key});
+  final VoidCallback callback;
+  const ActionButtomPage({super.key, required this.callback});
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +68,7 @@ class ActionButtomPage extends StatelessWidget {
               color: Colors.white,
             ),
             tooltip: 'Configurações',
-            onPressed: () => {},
+            onPressed: () => callback(),
           ),
         ),
       ],
