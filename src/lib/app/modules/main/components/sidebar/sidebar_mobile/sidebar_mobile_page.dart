@@ -9,8 +9,8 @@ import 'package:test_7pay/app/modules/main/components/sidebar/sidebar_content_pa
 import 'package:test_7pay/app/modules/main/controllers/main_controller.dart';
 import 'package:test_7pay/app/shared/widgets/spacing/divider_h.dart';
 
-class SidebarPage extends StatelessWidget {
-  SidebarPage({super.key});
+class SidebarMobilePage extends StatelessWidget {
+  SidebarMobilePage({super.key});
 
   final _controller = Modular.get<MainController>();
 
@@ -19,8 +19,7 @@ class SidebarPage extends StatelessWidget {
     return Observer(builder: (context) {
       return Padding(
         padding: const EdgeInsets.all(20.0),
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
+        child: Container(
           decoration: BoxDecoration(
             gradient: const LinearGradient(
               begin: Alignment.topCenter,
@@ -39,25 +38,13 @@ class SidebarPage extends StatelessWidget {
               ),
             ],
           ),
-          width: (!_controller.menuClick) ? context.w(.15) : context.w(.07),
+          width: context.w(.8),
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
               Image.asset(
                 'assets/images/logos/logo.png',
                 scale: 2,
-              ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: IconButton(
-                  icon: Icon(
-                    (!_controller.menuClick)
-                        ? Icons.arrow_left_outlined
-                        : Icons.arrow_right_outlined,
-                    color: Colors.white,
-                  ),
-                  onPressed: () => _controller.setMenuClick(),
-                ),
               ),
               const SpacingH(.02),
               Column(
