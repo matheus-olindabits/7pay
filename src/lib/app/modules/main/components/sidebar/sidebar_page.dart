@@ -39,7 +39,7 @@ class SidebarPage extends StatelessWidget {
               ),
             ],
           ),
-          width: (!_controller.menuClick) ? context.w(.15) : context.w(.08),
+          width: (!_controller.menuClick) ? context.w(.15) : context.w(.07),
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
@@ -62,14 +62,19 @@ class SidebarPage extends StatelessWidget {
               const SpacingH(.02),
               Column(
                 children: [
-                  Text(
-                    'Olá, Matheus',
-                    style: const TextStyle().textRegular(12, Colors.white),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Divider(
-                      color: Colors.white12,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Column(
+                      children: [
+                        Text(
+                          'Olá, Matheus',
+                          style:
+                              const TextStyle().textRegular(12, Colors.white),
+                        ),
+                        const Divider(
+                          color: Colors.white12,
+                        ),
+                      ],
                     ),
                   ),
                   (!_controller.menuClick)
