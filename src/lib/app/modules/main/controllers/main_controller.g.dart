@@ -25,6 +25,32 @@ mixin _$MainController on MainControllerBase, Store {
     });
   }
 
+  late final _$itemSidebarSelectedAtom =
+      Atom(name: 'MainControllerBase.itemSidebarSelected', context: context);
+
+  @override
+  String get itemSidebarSelected {
+    _$itemSidebarSelectedAtom.reportRead();
+    return super.itemSidebarSelected;
+  }
+
+  @override
+  set itemSidebarSelected(String value) {
+    _$itemSidebarSelectedAtom.reportWrite(value, super.itemSidebarSelected, () {
+      super.itemSidebarSelected = value;
+    });
+  }
+
+  late final _$setItemSidebarSelectedAnfGoToRouterAsyncAction = AsyncAction(
+      'MainControllerBase.setItemSidebarSelectedAnfGoToRouter',
+      context: context);
+
+  @override
+  Future setItemSidebarSelectedAnfGoToRouter(String item) {
+    return _$setItemSidebarSelectedAnfGoToRouterAsyncAction
+        .run(() => super.setItemSidebarSelectedAnfGoToRouter(item));
+  }
+
   late final _$MainControllerBaseActionController =
       ActionController(name: 'MainControllerBase', context: context);
 
@@ -42,7 +68,8 @@ mixin _$MainController on MainControllerBase, Store {
   @override
   String toString() {
     return '''
-menuClick: ${menuClick}
+menuClick: ${menuClick},
+itemSidebarSelected: ${itemSidebarSelected}
     ''';
   }
 }

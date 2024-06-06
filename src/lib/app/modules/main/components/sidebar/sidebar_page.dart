@@ -78,7 +78,7 @@ class SidebarPage extends StatelessWidget {
                     ),
                   ),
                   (!_controller.menuClick)
-                      ? const SidebarContentPage()
+                      ? SidebarContentPage()
                       : SidebarContentMinimizedPage(),
                 ],
               ),
