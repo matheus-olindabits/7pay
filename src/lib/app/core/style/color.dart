@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class WColor {
   // ******** primary colors ********
-  static const Color primaryColor = Color(0xFFfc6904);
-  static const Color secondColor = Color(0xFF3c3c3c);
+  static const Color primaryColor = Color(0xFF3d3c3c);
+  static const Color secondColor = Color(0xFFb9802b);
+  static const Color light = Color(0xFFE2E2E4);
+  static const Color dark = Color(0xFF7F8192);
   static const Color danger = Color.fromARGB(255, 229, 115, 115);
 
   static const MaterialColor themePrimary = MaterialColor(

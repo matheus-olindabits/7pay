@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:test_7pay/app/core/style/size.dart';
+import 'package:test_7pay/app/modules/main/components/sidebar/sidebar_page.dart';
 import 'package:test_7pay/app/shared/widgets/spacing/divider_w.dart';
 
 class MainPage extends StatelessWidget {
@@ -16,6 +17,7 @@ class MainPage extends StatelessWidget {
               builder: (context) {
                 return Row(
                   children: [
+                    const SidebarPage(),
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.only(
