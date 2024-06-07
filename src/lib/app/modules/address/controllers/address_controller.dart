@@ -93,13 +93,26 @@ abstract class AddressControllerBase with Store {
     if (addressCreateType == AddressCreateType.cep.name) {
       if (formKeyByCep.currentState!.validate()) {
         formKeyByCep.currentState!.save();
-        //_controller.createSquad(context);
+        listAddress();
       }
     } else {
       if (formKeyByStreet.currentState!.validate()) {
         formKeyByStreet.currentState!.save();
-        //_controller.createSquad(context);
+        listAddress();
       }
+    }
+  }
+
+  @action
+  Future<void> listAddress() async {
+    try {
+      final addresList = await _addressService.getAddressByCepRequest(cep);
+      print('foi');
+    } catch (error) {
+      //HandleError.errorRequest(error: error);
+      print(error);
+    } finally {
+      //loading = false;
     }
   }
 }

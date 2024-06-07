@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:test_7pay/app/core/style/size.dart';
 import 'package:test_7pay/app/modules/address/controllers/address_controller.dart';
 import 'package:test_7pay/app/modules/address/shared/enum/address_create_type_enum.dart';
+import 'package:test_7pay/app/shared/formatter/cep_input_formatter.dart';
 import 'package:test_7pay/app/shared/widgets/spacing/divider_h.dart';
 
 class AddressDialogCreateByCepPage extends StatelessWidget {
@@ -24,6 +26,11 @@ class AddressDialogCreateByCepPage extends StatelessWidget {
             Form(
               key: _controller.formKeyByCep,
               child: TextFormField(
+                keyboardType: TextInputType.number,
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  CepTextInputFormatter(),
+                ],
                 decoration: InputDecoration(
                   fillColor: Colors.white,
                   filled: true,
@@ -51,10 +58,12 @@ class AddressDialogCreateByCepPage extends StatelessWidget {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "Digite o cep";
+                  } else if (value.length < 9) {
+                    return "Digite o cep no formato correto";
                   }
                   return null;
                 },
-                onChanged: (value) => _controller.setCep,
+                onChanged: (value) => _controller.setCep(value),
               ),
             ),
             const SpacingH(.01),

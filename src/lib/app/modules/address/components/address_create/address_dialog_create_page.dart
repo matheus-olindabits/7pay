@@ -28,7 +28,7 @@ Future<void> showCustomDialog() {
         actions: [
           TextButton(
             onPressed: () => {
-              _controller.setOpenToSelect(),
+              //_controller.setOpenToSelect(),
               _controller.checkAddressCreateTypeToSearch(),
             },
             child: const Text("Buscar"),

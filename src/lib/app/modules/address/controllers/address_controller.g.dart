@@ -123,6 +123,14 @@ mixin _$AddressController on AddressControllerBase, Store {
     });
   }
 
+  late final _$listAddressAsyncAction =
+      AsyncAction('AddressControllerBase.listAddress', context: context);
+
+  @override
+  Future<void> listAddress() {
+    return _$listAddressAsyncAction.run(() => super.listAddress());
+  }
+
   late final _$AddressControllerBaseActionController =
       ActionController(name: 'AddressControllerBase', context: context);
 

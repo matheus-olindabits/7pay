@@ -8,7 +8,7 @@ class CustomDio {
   late Dio _dio;
 
   BaseOptions options = BaseOptions(
-    baseUrl: 'url',
+    baseUrl: 'https://viacep.com.br/ws/',
   );
 
   CustomDio._() {
