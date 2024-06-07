@@ -41,6 +41,36 @@ abstract class AddressControllerBase with Store {
     ),
   ]);
 
+  final List<String> ufList = [
+    'AC',
+    'AL',
+    'AP',
+    'AM',
+    'BA',
+    'CE',
+    'DF',
+    'ES',
+    'GO',
+    'MA',
+    'MT',
+    'MS',
+    'MG',
+    'PA',
+    'PB',
+    'PR',
+    'PE',
+    'PI',
+    'RJ',
+    'RN',
+    'RS',
+    'RO',
+    'RR',
+    'SC',
+    'SP',
+    'SE',
+    'TO'
+  ];
+
   final formKeyByCep = GlobalKey<FormState>();
   final formKeyByStreet = GlobalKey<FormState>();
 
@@ -66,7 +96,7 @@ abstract class AddressControllerBase with Store {
   String city = '';
 
   @observable
-  String uf = '';
+  String uf = 'GO';
 
   @observable
   bool loading = false;

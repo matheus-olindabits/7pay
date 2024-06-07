@@ -39,7 +39,7 @@ class AddressDialogCreateByStreetPage extends StatelessWidget {
                 borderSide: const BorderSide(color: Colors.black26),
                 borderRadius: BorderRadius.circular(10),
               ),
-              hintText: 'Digite o endereço para buscar o endereço',
+              hintText: 'Digite o nome da rua para buscar o endereço',
               hintStyle: TextStyle(
                 height: context.h(.0035),
               ),
@@ -47,6 +47,12 @@ class AddressDialogCreateByStreetPage extends StatelessWidget {
                 Icons.search,
               ),
             ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return "Digite o nome da rua";
+              }
+              return null;
+            },
             onChanged: (value) => _controller.setStreet(value),
           ),
           const SpacingH(.01),
@@ -54,32 +60,36 @@ class AddressDialogCreateByStreetPage extends StatelessWidget {
             children: [
               SizedBox(
                 width: context.w(.2),
-                child: TextFormField(
+                child: DropdownButtonFormField(
+                  isExpanded: true,
                   decoration: InputDecoration(
                     fillColor: Colors.white,
-                    filled: true,
                     contentPadding: const EdgeInsets.symmetric(
-                      vertical: 5.0,
-                      horizontal: 5.0,
+                      vertical: 10.0,
+                      horizontal: 10.0,
                     ),
-                    counterText: "",
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                    hintText: '',
                     enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.black26),
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(5),
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.black26),
-                      borderRadius: BorderRadius.circular(10),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5),
                     ),
-                    hintText: 'Digite o UF',
-                    hintStyle: TextStyle(
-                      height: context.h(.0035),
-                    ),
-                    prefixIcon: const Icon(
-                      Icons.search,
-                    ),
+                    filled: true,
                   ),
-                  onChanged: (value) => _controller.setUf(value),
+                  dropdownColor: Colors.white,
+                  validator: (value) =>
+                      value == null ? "Selecione um estado" : null,
+                  value: _controller.uf,
+                  items: _controller.ufList
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  onChanged: (value) => _controller.setUf(value!),
                 ),
               ),
               const SpacingW(.01),
@@ -109,6 +119,12 @@ class AddressDialogCreateByStreetPage extends StatelessWidget {
                       Icons.search,
                     ),
                   ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Digite o cidade";
+                    }
+                    return null;
+                  },
                   onChanged: (value) => _controller.setCity(value),
                 ),
               ),
