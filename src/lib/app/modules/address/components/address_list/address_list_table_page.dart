@@ -17,6 +17,7 @@ class AddressListTablePage extends StatelessWidget {
     return Observer(builder: (context) {
       _controller.initializePaginatedDataTable();
       return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           (_controller.addressListFiltered.isNotEmpty)
               ? SizedBox(

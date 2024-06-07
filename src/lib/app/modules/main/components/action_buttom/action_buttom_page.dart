@@ -22,13 +22,15 @@ class ActionButtomPage extends StatelessWidget {
           ),
           width: context.w(.03),
           height: context.w(.03),
-          child: IconButton(
-            icon: const Icon(
-              Icons.chat,
-              color: Colors.white,
+          child: FittedBox(
+            child: IconButton(
+              icon: const Icon(
+                Icons.chat,
+                color: Colors.white,
+              ),
+              tooltip: 'Chat',
+              onPressed: () {},
             ),
-            tooltip: 'Chat',
-            onPressed: () {},
           ),
         ),
         const SpacingW(.005),
@@ -42,13 +44,15 @@ class ActionButtomPage extends StatelessWidget {
           ),
           width: context.w(.03),
           height: context.w(.03),
-          child: IconButton(
-            icon: const Icon(
-              Icons.notifications_rounded,
-              color: Colors.white,
+          child: FittedBox(
+            child: IconButton(
+              icon: const Icon(
+                Icons.notifications_rounded,
+                color: Colors.white,
+              ),
+              tooltip: 'Notificações',
+              onPressed: () {},
             ),
-            tooltip: 'Notificações',
-            onPressed: () {},
           ),
         ),
         const SpacingW(.005),
@@ -62,13 +66,15 @@ class ActionButtomPage extends StatelessWidget {
           ),
           width: context.w(.03),
           height: context.w(.03),
-          child: IconButton(
-            icon: const Icon(
-              Icons.settings,
-              color: Colors.white,
+          child: FittedBox(
+            child: IconButton(
+              icon: const Icon(
+                Icons.settings,
+                color: Colors.white,
+              ),
+              tooltip: 'Configurações',
+              onPressed: () => callback(),
             ),
-            tooltip: 'Configurações',
-            onPressed: () => callback(),
           ),
         ),
       ],
