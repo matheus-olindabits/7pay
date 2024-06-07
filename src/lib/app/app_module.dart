@@ -3,6 +3,8 @@ import 'package:test_7pay/app/modules/address/address_module.dart';
 import 'package:test_7pay/app/modules/dashboard/dashboard_module.dart';
 import 'package:test_7pay/app/modules/main/controllers/main_controller.dart';
 import 'package:test_7pay/app/modules/main/pages/main_page.dart';
+import 'package:test_7pay/app/modules/main/pages/not_found_page.dart';
+import 'package:test_7pay/app/modules/main/pages/progress_page.dart';
 
 class AppModule extends Module {
   @override
@@ -26,5 +28,7 @@ class AppModule extends Module {
             ),
           ],
         ),
+        WildcardRoute(child: (_, args) => const NotFoundPage()),
+        ChildRoute('/progress/', child: (_, args) => const ProgressPage()),
       ];
 }

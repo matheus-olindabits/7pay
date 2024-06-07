@@ -12,7 +12,7 @@ class SidebarContentPage extends StatelessWidget {
         SidebarContentItemPage(
           item: ItemSidebarSelected.dashboard.name,
           itemName: 'Dashboard',
-          icon: Icons.house_outlined,
+          icon: Icons.dashboard_outlined,
         ),
         SidebarContentItemPage(
           item: ItemSidebarSelected.address.name,

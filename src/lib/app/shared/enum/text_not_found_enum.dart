@@ -1,5 +1,5 @@
 enum NotFound {
-  addressNotFound("Sem nenhum endereço cadastrado!");
+  addressNotFound("Sem registros dos endereços!");
 
   final String name;
   const NotFound(this.name);
