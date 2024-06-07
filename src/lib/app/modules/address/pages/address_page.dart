@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:test_7pay/app/core/style/color.dart';
 import 'package:test_7pay/app/core/style/size.dart';
+import 'package:test_7pay/app/modules/address/components/address_list/address_list_mobile/address_list_mobile_page.dart';
 import 'package:test_7pay/app/modules/address/components/address_list/address_list_page.dart';
 
 class AddressPage extends StatelessWidget {
@@ -13,18 +13,8 @@ class AddressPage extends StatelessWidget {
         width: double.infinity,
         child: SingleChildScrollView(
           child: (context.isMobile)
-              ? const AddressListPage()
+              ? const AddressListMobilePage()
               : const AddressListPage(),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      floatingActionButton: Visibility(
-        visible: context.isMobile ? true : false,
-        child: FloatingActionButton(
-          onPressed: () {}, //_controller.setRouterGoToCreate(),
-          backgroundColor: WColor.primaryColor,
-          tooltip: 'Cadastrar Produto',
-          child: const Icon(Icons.assignment_add),
         ),
       ),
     );

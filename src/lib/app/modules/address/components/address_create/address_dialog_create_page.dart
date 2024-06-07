@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:test_7pay/app/core/style/size.dart';
+import 'package:test_7pay/app/modules/address/components/address_create/address_create_mobile/address_dialog_create_by_street_mobile_page.dart';
 import 'package:test_7pay/app/modules/address/components/address_create/address_dialog_create_by_cep_page.dart';
 import 'package:test_7pay/app/modules/address/components/address_create/address_dialog_create_by_street_page.dart';
 import 'package:test_7pay/app/modules/address/components/address_create/address_list_to_select_page.dart';
@@ -35,7 +36,9 @@ Future<void> showCustomDialog() {
                             (controller.addressCreateType ==
                                     AddressCreateType.cep.name)
                                 ? AddressDialogCreateByCepPage()
-                                : AddressDialogCreateByStreetPage(),
+                                : (context.isMobile)
+                                    ? AddressDialogCreateByStreetMobilePage()
+                                    : AddressDialogCreateByStreetPage(),
                             if (controller.openToSelect) ...[
                               AddressListToSelectPage(),
                             ],
