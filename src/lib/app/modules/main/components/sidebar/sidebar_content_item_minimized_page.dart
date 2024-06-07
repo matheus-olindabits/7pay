@@ -37,9 +37,11 @@ class SidebarContentItemMinimizedPage extends StatelessWidget {
                     right: 10,
                     left: 10,
                   ),
-                  child: Icon(
-                    icon,
-                    color: WColor.light,
+                  child: FittedBox(
+                    child: Icon(
+                      icon,
+                      color: WColor.light,
+                    ),
                   ),
                 ),
               ),
@@ -69,9 +71,11 @@ class SidebarContentItemMinimizedPage extends StatelessWidget {
                     right: 10,
                     left: 10,
                   ),
-                  child: Icon(
-                    icon,
-                    color: WColor.primaryColor,
+                  child: FittedBox(
+                    child: Icon(
+                      icon,
+                      color: WColor.primaryColor,
+                    ),
                   ),
                 ),
               ),

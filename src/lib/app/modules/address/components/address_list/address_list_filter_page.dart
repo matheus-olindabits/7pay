@@ -19,7 +19,9 @@ class AddressListFilterPage extends StatelessWidget {
             decoration: InputDecoration(
               label: const Text(
                 "Bairro",
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(
+                  color: Colors.black,
+                ),
               ),
               floatingLabelBehavior: FloatingLabelBehavior.always,
               fillColor: Colors.white,
@@ -56,7 +58,9 @@ class AddressListFilterPage extends StatelessWidget {
             decoration: InputDecoration(
               label: const Text(
                 "Uf",
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(
+                  color: Colors.black,
+                ),
               ),
               fillColor: Colors.white,
               contentPadding: const EdgeInsets.symmetric(
@@ -66,10 +70,12 @@ class AddressListFilterPage extends StatelessWidget {
               floatingLabelBehavior: FloatingLabelBehavior.always,
               hintText: '',
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5),
+                borderSide: const BorderSide(color: Colors.black26),
+                borderRadius: BorderRadius.circular(10),
               ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5),
+              focusedBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.black26),
+                borderRadius: BorderRadius.circular(10),
               ),
               filled: true,
             ),

@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:test_7pay/app/core/style/color.dart';
@@ -45,17 +47,23 @@ class SidebarContentItemPage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        icon,
-                        color: Colors.white,
+                      FittedBox(
+                        child: Icon(
+                          icon,
+                          color: Colors.white,
+                        ),
                       ),
                       const SpacingW(.01),
                       Expanded(
-                        child: Text(
-                          itemName,
-                          style: const TextStyle().textBold(
-                            10,
-                            Colors.white,
+                        child: FittedBox(
+                          alignment: Alignment.centerLeft,
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            itemName,
+                            style: const TextStyle().textBold(
+                              10,
+                              Colors.white,
+                            ),
                           ),
                         ),
                       ),
@@ -94,17 +102,23 @@ class SidebarContentItemPage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        icon,
-                        color: WColor.primaryColor,
+                      FittedBox(
+                        child: Icon(
+                          icon,
+                          color: WColor.primaryColor,
+                        ),
                       ),
                       const SpacingW(.01),
                       Expanded(
-                        child: Text(
-                          itemName,
-                          style: const TextStyle().textBold(
-                            10,
-                            WColor.primaryColor,
+                        child: FittedBox(
+                          alignment: Alignment.centerLeft,
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            itemName,
+                            style: const TextStyle().textBold(
+                              10,
+                              WColor.primaryColor,
+                            ),
                           ),
                         ),
                       ),
