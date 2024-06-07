@@ -44,25 +44,44 @@ class AddressListToSelectPage extends StatelessWidget {
                     height: context.h(.1),
                     child: Padding(
                       padding: const EdgeInsets.all(10),
-                      child: FittedBox(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(item.cep),
-                            const SpacingW(.02),
-                            Text(item.street),
-                            const SpacingW(.02),
-                            Text(item.district),
-                            const SpacingW(.02),
-                            Text(item.city),
-                            const SpacingW(.02),
-                            Text(item.uf),
-                            const SpacingW(.02),
-                            Text(item.complement ?? ''),
-                            const SpacingW(.02),
-                          ],
-                        ),
-                      ),
+                      child: (!context.isMobile)
+                          ? Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Flexible(child: Text(item.cep)),
+                                const SpacingW(.02),
+                                Flexible(child: Text(item.street)),
+                                const SpacingW(.02),
+                                Flexible(child: Text(item.district)),
+                                const SpacingW(.02),
+                                Flexible(child: Text(item.city)),
+                                const SpacingW(.02),
+                                Flexible(child: Text(item.uf)),
+                                const SpacingW(.02),
+                                Flexible(child: Text(item.complement ?? '')),
+                                const SpacingW(.02),
+                              ],
+                            )
+                          : FittedBox(
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(item.cep),
+                                  const SpacingW(.02),
+                                  Text(item.street),
+                                  const SpacingW(.02),
+                                  Text(item.district),
+                                  const SpacingW(.02),
+                                  Text(item.city),
+                                  const SpacingW(.02),
+                                  Text(item.uf),
+                                  const SpacingW(.02),
+                                  Text(item.complement ?? ''),
+                                  const SpacingW(.02),
+                                ],
+                              ),
+                            ),
                     ),
                   ),
                 ),

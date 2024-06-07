@@ -21,7 +21,11 @@ Future<void> showCustomDialog() {
           content: AnimatedContainer(
             duration: const Duration(milliseconds: 300),
             width: context.w(.5),
-            height: (!controller.openToSelect) ? context.h(.3) : context.h(.8),
+            height: (!controller.openToSelect)
+                ? (context.isMobile)
+                    ? context.h(.5)
+                    : context.h(.3)
+                : context.h(.8),
             child: LayoutBuilder(
               builder: (context, constraints) {
                 return SingleChildScrollView(
