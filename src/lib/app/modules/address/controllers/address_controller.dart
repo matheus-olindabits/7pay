@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:test_7pay/app/modules/address/shared/enum/address_create_type_enum.dart';
 import 'package:test_7pay/app/modules/address/shared/models/address.dart';
 import 'package:test_7pay/app/modules/address/shared/services/address_service.dart';
 
@@ -34,6 +35,9 @@ abstract class AddressControllerBase with Store {
     ),
   ]);
 
+  final formKeyByCep = GlobalKey<FormState>();
+  final formKeyByStreet = GlobalKey<FormState>();
+
   @observable
   int rowsPerPage = PaginatedDataTable.defaultRowsPerPage;
 
@@ -44,7 +48,13 @@ abstract class AddressControllerBase with Store {
   bool isRowCountLessDefaultRowsPerPage = false;
 
   @observable
-  String addressCreateType = 'cep';
+  String addressCreateType = AddressCreateType.cep.name;
+
+  @observable
+  String cep = '';
+
+  @observable
+  bool openToSelect = false;
 
   @action
   void initializePageCount() {
@@ -67,5 +77,29 @@ abstract class AddressControllerBase with Store {
   @action
   void setAddressCreateType(String value) {
     addressCreateType = value;
+  }
+
+  @action
+  void setCep(String value) {
+    cep = value;
+  }
+
+  @action
+  void setOpenToSelect() {
+    (openToSelect == true) ? openToSelect = false : openToSelect = true;
+  }
+
+  checkAddressCreateTypeToSearch() {
+    if (addressCreateType == AddressCreateType.cep.name) {
+      if (formKeyByCep.currentState!.validate()) {
+        formKeyByCep.currentState!.save();
+        //_controller.createSquad(context);
+      }
+    } else {
+      if (formKeyByStreet.currentState!.validate()) {
+        formKeyByStreet.currentState!.save();
+        //_controller.createSquad(context);
+      }
+    }
   }
 }

@@ -5,6 +5,7 @@ import 'package:test_7pay/app/core/style/size.dart';
 import 'package:test_7pay/app/modules/address/components/address_create/address_dialog_create_by_cep_page.dart';
 import 'package:test_7pay/app/modules/address/components/address_create/address_dialog_create_by_street_page.dart';
 import 'package:test_7pay/app/modules/address/controllers/address_controller.dart';
+import 'package:test_7pay/app/modules/address/shared/enum/address_create_type_enum.dart';
 import 'package:test_7pay/app/shared/widgets/navigator/navigator_key.dart';
 
 Future<void> showCustomDialog() {
@@ -14,22 +15,23 @@ Future<void> showCustomDialog() {
     builder: (context) {
       return AlertDialog(
         title: const Text("Cadastrar um novo endereço"),
-        content: SizedBox(
-          width: context.w(.5),
-          child: Observer(builder: (context) {
-            if (_controller.addressCreateType == 'cep') {
-              return AddressDialogCreateByCepPage();
-            } else {
-              return AddressDialogCreateByStreetPage();
-            }
-          }),
-        ),
+        content: Observer(builder: (context) {
+          return AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            width: context.w(.5),
+            height: (!_controller.openToSelect) ? context.h(.2) : context.h(.8),
+            child: (_controller.addressCreateType == AddressCreateType.cep.name)
+                ? AddressDialogCreateByCepPage()
+                : AddressDialogCreateByStreetPage(),
+          );
+        }),
         actions: [
           TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
+            onPressed: () => {
+              _controller.setOpenToSelect(),
+              _controller.checkAddressCreateTypeToSearch(),
             },
-            child: Text("Buscar"),
+            child: const Text("Buscar"),
           ),
         ],
       );

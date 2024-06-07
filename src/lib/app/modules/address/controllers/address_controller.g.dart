@@ -91,6 +91,38 @@ mixin _$AddressController on AddressControllerBase, Store {
     });
   }
 
+  late final _$cepAtom =
+      Atom(name: 'AddressControllerBase.cep', context: context);
+
+  @override
+  String get cep {
+    _$cepAtom.reportRead();
+    return super.cep;
+  }
+
+  @override
+  set cep(String value) {
+    _$cepAtom.reportWrite(value, super.cep, () {
+      super.cep = value;
+    });
+  }
+
+  late final _$openToSelectAtom =
+      Atom(name: 'AddressControllerBase.openToSelect', context: context);
+
+  @override
+  bool get openToSelect {
+    _$openToSelectAtom.reportRead();
+    return super.openToSelect;
+  }
+
+  @override
+  set openToSelect(bool value) {
+    _$openToSelectAtom.reportWrite(value, super.openToSelect, () {
+      super.openToSelect = value;
+    });
+  }
+
   late final _$AddressControllerBaseActionController =
       ActionController(name: 'AddressControllerBase', context: context);
 
@@ -128,13 +160,37 @@ mixin _$AddressController on AddressControllerBase, Store {
   }
 
   @override
+  void setCep(String value) {
+    final _$actionInfo = _$AddressControllerBaseActionController.startAction(
+        name: 'AddressControllerBase.setCep');
+    try {
+      return super.setCep(value);
+    } finally {
+      _$AddressControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setOpenToSelect() {
+    final _$actionInfo = _$AddressControllerBaseActionController.startAction(
+        name: 'AddressControllerBase.setOpenToSelect');
+    try {
+      return super.setOpenToSelect();
+    } finally {
+      _$AddressControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 addressList: ${addressList},
 rowsPerPage: ${rowsPerPage},
 rowsPerPageAlter: ${rowsPerPageAlter},
 isRowCountLessDefaultRowsPerPage: ${isRowCountLessDefaultRowsPerPage},
-addressCreateType: ${addressCreateType}
+addressCreateType: ${addressCreateType},
+cep: ${cep},
+openToSelect: ${openToSelect}
     ''';
   }
 }
