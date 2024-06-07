@@ -292,11 +292,11 @@ mixin _$AddressController on AddressControllerBase, Store {
   }
 
   @override
-  void setOpenToSelect() {
+  void setAttributesToCreate() {
     final _$actionInfo = _$AddressControllerBaseActionController.startAction(
-        name: 'AddressControllerBase.setOpenToSelect');
+        name: 'AddressControllerBase.setAttributesToCreate');
     try {
-      return super.setOpenToSelect();
+      return super.setAttributesToCreate();
     } finally {
       _$AddressControllerBaseActionController.endAction(_$actionInfo);
     }

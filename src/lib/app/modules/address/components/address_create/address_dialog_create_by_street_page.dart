@@ -13,116 +13,116 @@ class AddressDialogCreateByStreetPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Divider(
-              color: Colors.black12,
+    return Form(
+      key: _controller.formKeyByStreet,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Divider(
+            color: Colors.black12,
+          ),
+          const SpacingH(.02),
+          TextFormField(
+            decoration: InputDecoration(
+              fillColor: Colors.white,
+              filled: true,
+              contentPadding: const EdgeInsets.symmetric(
+                vertical: 5.0,
+                horizontal: 5.0,
+              ),
+              counterText: "",
+              enabledBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.black26),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.black26),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              hintText: 'Digite o endereço para buscar o endereço',
+              hintStyle: TextStyle(
+                height: context.h(.0035),
+              ),
+              prefixIcon: const Icon(
+                Icons.search,
+              ),
             ),
-            const SpacingH(.02),
-            TextFormField(
-              decoration: InputDecoration(
-                fillColor: Colors.white,
-                filled: true,
-                contentPadding: const EdgeInsets.symmetric(
-                  vertical: 5.0,
-                  horizontal: 5.0,
-                ),
-                counterText: "",
-                enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.black26),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.black26),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                hintText: 'Digite o endereço para buscar o endereço',
-                hintStyle: TextStyle(
-                  height: context.h(.0035),
-                ),
-                prefixIcon: const Icon(
-                  Icons.search,
+            onChanged: (value) => _controller.setStreet(value),
+          ),
+          const SpacingH(.01),
+          Row(
+            children: [
+              SizedBox(
+                width: context.w(.2),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    fillColor: Colors.white,
+                    filled: true,
+                    contentPadding: const EdgeInsets.symmetric(
+                      vertical: 5.0,
+                      horizontal: 5.0,
+                    ),
+                    counterText: "",
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.black26),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.black26),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    hintText: 'Digite o UF',
+                    hintStyle: TextStyle(
+                      height: context.h(.0035),
+                    ),
+                    prefixIcon: const Icon(
+                      Icons.search,
+                    ),
+                  ),
+                  onChanged: (value) => _controller.setUf(value),
                 ),
               ),
-              onChanged: (value) {},
-            ),
-            const SpacingH(.01),
-            Row(
-              children: [
-                SizedBox(
-                  width: context.w(.2),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      filled: true,
-                      contentPadding: const EdgeInsets.symmetric(
-                        vertical: 5.0,
-                        horizontal: 5.0,
-                      ),
-                      counterText: "",
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.black26),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.black26),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      hintText: 'Digite o UF',
-                      hintStyle: TextStyle(
-                        height: context.h(.0035),
-                      ),
-                      prefixIcon: const Icon(
-                        Icons.search,
-                      ),
+              const SpacingW(.01),
+              Expanded(
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    fillColor: Colors.white,
+                    filled: true,
+                    contentPadding: const EdgeInsets.symmetric(
+                      vertical: 5.0,
+                      horizontal: 5.0,
                     ),
-                    onChanged: (value) {},
-                  ),
-                ),
-                const SpacingW(.01),
-                Expanded(
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      filled: true,
-                      contentPadding: const EdgeInsets.symmetric(
-                        vertical: 5.0,
-                        horizontal: 5.0,
-                      ),
-                      counterText: "",
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.black26),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.black26),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      hintText: 'Digite o nome da cidade',
-                      hintStyle: TextStyle(
-                        height: context.h(.0035),
-                      ),
-                      prefixIcon: const Icon(
-                        Icons.search,
-                      ),
+                    counterText: "",
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.black26),
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    onChanged: (value) {},
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.black26),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    hintText: 'Digite o nome da cidade',
+                    hintStyle: TextStyle(
+                      height: context.h(.0035),
+                    ),
+                    prefixIcon: const Icon(
+                      Icons.search,
+                    ),
                   ),
+                  onChanged: (value) => _controller.setCity(value),
                 ),
-              ],
-            ),
-            TextButton(
-              onPressed: () {
-                _controller.setAddressCreateType(AddressCreateType.cep.name);
-              },
-              child: const Text("Buscar pelo cep"),
-            ),
-          ],
-        ),
-      ],
+              ),
+            ],
+          ),
+          const SpacingH(.01),
+          TextButton(
+            onPressed: () {
+              _controller.setAddressCreateType(AddressCreateType.cep.name);
+            },
+            child: const Text("Buscar pelo cep"),
+          ),
+        ],
+      ),
     );
   }
 }

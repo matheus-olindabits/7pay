@@ -16,8 +16,6 @@ class SnackBarMessage {
       message: text,
       messageColor: Colors.white,
       backgroundColor: WColor.danger,
-      borderColor: Colors.white,
-      borderWidth: 2.0,
       duration: const Duration(seconds: 3),
     ).show(navigatorKey.currentContext!);
   }

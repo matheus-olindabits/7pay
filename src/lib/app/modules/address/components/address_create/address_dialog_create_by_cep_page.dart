@@ -14,66 +14,62 @@ class AddressDialogCreateByCepPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Divider(
-              color: Colors.black12,
-            ),
-            const SpacingH(.02),
-            Form(
-              key: _controller.formKeyByCep,
-              child: TextFormField(
-                keyboardType: TextInputType.number,
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                  CepTextInputFormatter(),
-                ],
-                decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  filled: true,
-                  contentPadding: const EdgeInsets.symmetric(
-                    vertical: 5.0,
-                    horizontal: 5.0,
-                  ),
-                  counterText: "",
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.black26),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.black26),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  hintText: 'Digite o cep para buscar o endereço',
-                  hintStyle: TextStyle(
-                    height: context.h(.0035),
-                  ),
-                  prefixIcon: const Icon(
-                    Icons.search,
-                  ),
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Digite o cep";
-                  } else if (value.length < 9) {
-                    return "Digite o cep no formato correto";
-                  }
-                  return null;
-                },
-                onChanged: (value) => _controller.setCep(value),
+        const Divider(
+          color: Colors.black12,
+        ),
+        const SpacingH(.02),
+        Form(
+          key: _controller.formKeyByCep,
+          child: TextFormField(
+            keyboardType: TextInputType.number,
+            inputFormatters: [
+              FilteringTextInputFormatter.digitsOnly,
+              CepTextInputFormatter(),
+            ],
+            decoration: InputDecoration(
+              fillColor: Colors.white,
+              filled: true,
+              contentPadding: const EdgeInsets.symmetric(
+                vertical: 5.0,
+                horizontal: 5.0,
+              ),
+              counterText: "",
+              enabledBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.black26),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.black26),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              hintText: 'Digite o cep para buscar o endereço',
+              hintStyle: TextStyle(
+                height: context.h(.0035),
+              ),
+              prefixIcon: const Icon(
+                Icons.search,
               ),
             ),
-            const SpacingH(.01),
-            TextButton(
-              onPressed: () {
-                _controller.setAddressCreateType(AddressCreateType.street.name);
-              },
-              child: const Text("Não sabe o cep?"),
-            ),
-          ],
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return "Digite o cep";
+              } else if (value.length < 9) {
+                return "Digite o cep no formato correto";
+              }
+              return null;
+            },
+            onChanged: (value) => _controller.setCep(value),
+          ),
+        ),
+        const SpacingH(.01),
+        TextButton(
+          onPressed: () {
+            _controller.setAddressCreateType(AddressCreateType.street.name);
+          },
+          child: const Text("Não sabe o cep?"),
         ),
       ],
     );

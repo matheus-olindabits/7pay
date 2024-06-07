@@ -18,13 +18,14 @@ class HandleError {
             Modular.to.navigate(RouterApp.dashboard);
           }
         } else {
-          Modular.to.navigate(RouterApp.dashboard);
+          SnackBarMessage.notification(ExceptionError.defaultError.name);
         }
       } else {
         SnackBarMessage.notification(ExceptionError.defaultError.name);
       }
     } catch (e) {
-      SnackBarMessage.notification(ExceptionError.defaultError.name);
+      SnackBarMessage.notification(
+          descriptionError ?? ExceptionError.defaultError.name);
     }
   }
 }

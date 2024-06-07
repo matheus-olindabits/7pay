@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 import 'package:test_7pay/app/modules/address/shared/enum/address_create_type_enum.dart';
 import 'package:test_7pay/app/modules/address/shared/models/address.dart';
@@ -117,8 +118,21 @@ abstract class AddressControllerBase with Store {
   }
 
   @action
-  void setOpenToSelect() {
-    (openToSelect == true) ? openToSelect = false : openToSelect = true;
+  void setAttributesToCreate() {
+    openToSelect = false;
+    addressListToSelect = [];
+    addressCreateType = AddressCreateType.cep.name;
+  }
+
+  @action
+  void addAddress(Address address) {
+    addressList.add(address);
+    Modular.to.pop();
+  }
+
+  @action
+  void removeAddress(int index) {
+    addressList.removeAt(index);
   }
 
   checkAddressCreateTypeToSearch() {

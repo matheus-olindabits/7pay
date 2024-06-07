@@ -32,6 +32,7 @@ class AddressActionButtomPage extends StatelessWidget {
         FloatingActionButton(
           backgroundColor: WColor.primaryColor,
           onPressed: () {
+            _controller.setAttributesToCreate();
             showCustomDialog();
           },
           tooltip: 'Cadastrar Endereço',
