@@ -9,6 +9,22 @@ part of 'address_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$AddressController on AddressControllerBase, Store {
+  late final _$addressListToSelectAtom =
+      Atom(name: 'AddressControllerBase.addressListToSelect', context: context);
+
+  @override
+  List<Address> get addressListToSelect {
+    _$addressListToSelectAtom.reportRead();
+    return super.addressListToSelect;
+  }
+
+  @override
+  set addressListToSelect(List<Address> value) {
+    _$addressListToSelectAtom.reportWrite(value, super.addressListToSelect, () {
+      super.addressListToSelect = value;
+    });
+  }
+
   late final _$addressListAtom =
       Atom(name: 'AddressControllerBase.addressList', context: context);
 
@@ -107,6 +123,70 @@ mixin _$AddressController on AddressControllerBase, Store {
     });
   }
 
+  late final _$streetAtom =
+      Atom(name: 'AddressControllerBase.street', context: context);
+
+  @override
+  String get street {
+    _$streetAtom.reportRead();
+    return super.street;
+  }
+
+  @override
+  set street(String value) {
+    _$streetAtom.reportWrite(value, super.street, () {
+      super.street = value;
+    });
+  }
+
+  late final _$cityAtom =
+      Atom(name: 'AddressControllerBase.city', context: context);
+
+  @override
+  String get city {
+    _$cityAtom.reportRead();
+    return super.city;
+  }
+
+  @override
+  set city(String value) {
+    _$cityAtom.reportWrite(value, super.city, () {
+      super.city = value;
+    });
+  }
+
+  late final _$ufAtom =
+      Atom(name: 'AddressControllerBase.uf', context: context);
+
+  @override
+  String get uf {
+    _$ufAtom.reportRead();
+    return super.uf;
+  }
+
+  @override
+  set uf(String value) {
+    _$ufAtom.reportWrite(value, super.uf, () {
+      super.uf = value;
+    });
+  }
+
+  late final _$loadingAtom =
+      Atom(name: 'AddressControllerBase.loading', context: context);
+
+  @override
+  bool get loading {
+    _$loadingAtom.reportRead();
+    return super.loading;
+  }
+
+  @override
+  set loading(bool value) {
+    _$loadingAtom.reportWrite(value, super.loading, () {
+      super.loading = value;
+    });
+  }
+
   late final _$openToSelectAtom =
       Atom(name: 'AddressControllerBase.openToSelect', context: context);
 
@@ -179,6 +259,39 @@ mixin _$AddressController on AddressControllerBase, Store {
   }
 
   @override
+  void setStreet(String value) {
+    final _$actionInfo = _$AddressControllerBaseActionController.startAction(
+        name: 'AddressControllerBase.setStreet');
+    try {
+      return super.setStreet(value);
+    } finally {
+      _$AddressControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setUf(String value) {
+    final _$actionInfo = _$AddressControllerBaseActionController.startAction(
+        name: 'AddressControllerBase.setUf');
+    try {
+      return super.setUf(value);
+    } finally {
+      _$AddressControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setCity(String value) {
+    final _$actionInfo = _$AddressControllerBaseActionController.startAction(
+        name: 'AddressControllerBase.setCity');
+    try {
+      return super.setCity(value);
+    } finally {
+      _$AddressControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void setOpenToSelect() {
     final _$actionInfo = _$AddressControllerBaseActionController.startAction(
         name: 'AddressControllerBase.setOpenToSelect');
@@ -192,12 +305,17 @@ mixin _$AddressController on AddressControllerBase, Store {
   @override
   String toString() {
     return '''
+addressListToSelect: ${addressListToSelect},
 addressList: ${addressList},
 rowsPerPage: ${rowsPerPage},
 rowsPerPageAlter: ${rowsPerPageAlter},
 isRowCountLessDefaultRowsPerPage: ${isRowCountLessDefaultRowsPerPage},
 addressCreateType: ${addressCreateType},
 cep: ${cep},
+street: ${street},
+city: ${city},
+uf: ${uf},
+loading: ${loading},
 openToSelect: ${openToSelect}
     ''';
   }

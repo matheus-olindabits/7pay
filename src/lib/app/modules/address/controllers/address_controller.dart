@@ -3,6 +3,8 @@ import 'package:mobx/mobx.dart';
 import 'package:test_7pay/app/modules/address/shared/enum/address_create_type_enum.dart';
 import 'package:test_7pay/app/modules/address/shared/models/address.dart';
 import 'package:test_7pay/app/modules/address/shared/services/address_service.dart';
+import 'package:test_7pay/app/shared/enum/exception_error_enum.dart';
+import 'package:test_7pay/app/shared/handle_error/handle_error.dart';
 
 part 'address_controller.g.dart';
 
@@ -14,6 +16,9 @@ abstract class AddressControllerBase with Store {
   AddressControllerBase({
     required AddressService addressService,
   }) : _addressService = addressService;
+
+  @observable
+  List<Address> addressListToSelect = [];
 
   @observable
   ObservableList<Address> addressList = ObservableList.of([
@@ -54,6 +59,18 @@ abstract class AddressControllerBase with Store {
   String cep = '';
 
   @observable
+  String street = '';
+
+  @observable
+  String city = '';
+
+  @observable
+  String uf = '';
+
+  @observable
+  bool loading = false;
+
+  @observable
   bool openToSelect = false;
 
   @action
@@ -85,6 +102,21 @@ abstract class AddressControllerBase with Store {
   }
 
   @action
+  void setStreet(String value) {
+    street = value;
+  }
+
+  @action
+  void setUf(String value) {
+    uf = value;
+  }
+
+  @action
+  void setCity(String value) {
+    city = value;
+  }
+
+  @action
   void setOpenToSelect() {
     (openToSelect == true) ? openToSelect = false : openToSelect = true;
   }
@@ -106,13 +138,21 @@ abstract class AddressControllerBase with Store {
   @action
   Future<void> listAddress() async {
     try {
-      final addresList = await _addressService.getAddressByCepRequest(cep);
-      print('foi');
+      loading = true;
+      if (addressCreateType == AddressCreateType.cep.name) {
+        addressListToSelect = await _addressService.getAddressByCepRequest(cep);
+      } else {
+        addressListToSelect =
+            await _addressService.getAddressByStreetRequest(street, uf, city);
+      }
+      openToSelect = true;
     } catch (error) {
-      //HandleError.errorRequest(error: error);
-      print(error);
+      HandleError.errorRequest(
+        error: error,
+        descriptionError: ExceptionError.cep.name,
+      );
     } finally {
-      //loading = false;
+      loading = false;
     }
   }
 }

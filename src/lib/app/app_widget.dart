@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:test_7pay/app/core/style/color.dart';
 import 'package:test_7pay/app/router.dart';
+import 'package:test_7pay/app/shared/snackbar/snackbar.dart';
 import 'package:test_7pay/app/shared/widgets/navigator/navigator_key.dart';
 
 class AppWidget extends StatelessWidget {
@@ -13,6 +14,7 @@ class AppWidget extends StatelessWidget {
     Modular.setInitialRoute(RouterApp.dashboard);
     return MaterialApp.router(
       title: '7pay',
+      scaffoldMessengerKey: snackbarKey,
       theme: ThemeData(
         fontFamily: 'Quicksand',
         visualDensity: VisualDensity.adaptivePlatformDensity,

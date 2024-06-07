@@ -6,9 +6,18 @@ class AddressRepositoryImpl implements AddressRepository {
   @override
   Future<List<Address>> getAddressByCep(String cep) async {
     return CustomDio.instance.get('/$cep/json').then((res) {
-      final addressList = res.data;
+      final addressList = Address.fromMap(res.data);
+      return [addressList];
+    });
+  }
 
-      return addressList.map<Address>((coinMap) {
+  @override
+  Future<List<Address>> getAddressByStreet(
+      String street, String uf, String city) async {
+    return CustomDio.instance.get('/$uf/$city/$street/json').then((res) {
+      final productList = res.data;
+
+      return productList.map<Address>((coinMap) {
         return Address.fromMap(coinMap);
       }).toList();
     });

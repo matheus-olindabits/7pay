@@ -15,4 +15,14 @@ class AddressServiceImpl implements AddressService {
       rethrow;
     }
   }
+
+  @override
+  Future<List<Address>> getAddressByStreetRequest(
+      String street, String uf, String city) async {
+    try {
+      return await _addressRepository.getAddressByStreet(street, uf, city);
+    } catch (error) {
+      rethrow;
+    }
+  }
 }
