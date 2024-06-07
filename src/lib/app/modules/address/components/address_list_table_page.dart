@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:test_7pay/app/core/style/color.dart';
-import 'package:test_7pay/app/core/style/size.dart';
-import 'package:test_7pay/app/core/style/text.dart';
+import 'package:test_7pay/app/modules/address/components/address_list_paginate_table_page.dart';
+import 'package:test_7pay/app/modules/address/controllers/address_controller.dart';
 import 'package:test_7pay/app/shared/enum/text_not_found_enum.dart';
 import 'package:test_7pay/app/shared/widgets/content/empty_content.dart';
 import 'package:test_7pay/app/shared/widgets/spacing/divider_h.dart';
 
 class AddressListTablePage extends StatelessWidget {
-  const AddressListTablePage({super.key});
+  AddressListTablePage({super.key});
+
+  final _controller = Modular.get<AddressController>();
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +19,8 @@ class AddressListTablePage extends StatelessWidget {
       _controller.initializePageCount();
       return Column(
         children: [
-          //ProductListFilterPage(),
           const SpacingH(.02),
-          (_controller.productList.isNotEmpty)
+          (_controller.addressList.isNotEmpty)
               ? SizedBox(
                   width: double.infinity,
                   child: Theme(
@@ -43,35 +45,7 @@ class AddressListTablePage extends StatelessWidget {
                         onSurface: Colors.black,
                       ),
                     ),
-                    child: PaginatedDataTable(
-                      columnSpacing: context.w(.5),
-                      header: Text(
-                        'Listagem dos Produtos',
-                        style: const TextStyle().textRegular(14),
-                      ),
-                      columns: [
-                        DataColumn(
-                            label: Text(
-                          'Nome',
-                          style: const TextStyle().textBold(14),
-                        )),
-                        DataColumn(
-                            label: Text(
-                          'Ações',
-                          style: const TextStyle().textBold(14),
-                        )),
-                      ],
-                      source: ProductDTS(_controller),
-                      rowsPerPage: _controller.isRowCountLessDefaultRowsPerPage
-                          ? _controller.rowsPerPage
-                          : _controller.rowsPerPageAlter,
-                      onRowsPerPageChanged:
-                          _controller.isRowCountLessDefaultRowsPerPage
-                              ? null
-                              : (rowCount) {
-                                  _controller.changeRowPerPage(rowCount);
-                                },
-                    ),
+                    child: AddressListPaginateTablePage(),
                   ),
                 )
               : EmptyContent(

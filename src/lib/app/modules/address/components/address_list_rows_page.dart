@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:test_7pay/app/core/style/color.dart';
 import 'package:test_7pay/app/modules/address/controllers/address_controller.dart';
 
 class AddressListRow extends DataTableSource {
@@ -10,27 +11,50 @@ class AddressListRow extends DataTableSource {
   DataRow getRow(int index) {
     return DataRow.byIndex(index: index, cells: [
       DataCell(Observer(builder: (context) {
-        if (index <= (productListController.productList.length - 1)) {
-          return Text(
-            productListController.productList[index].name.toUpperCase(),
-          );
-        } else {
-          return const Text('');
-        }
+        return Text(
+          productListController.addressList[index].cep,
+        );
+      })),
+      DataCell(Observer(builder: (context) {
+        return Text(
+          productListController.addressList[index].street,
+        );
+      })),
+      DataCell(Observer(builder: (context) {
+        return Text(
+          productListController.addressList[index].complement ?? '---',
+        );
+      })),
+      DataCell(Observer(builder: (context) {
+        return Text(
+          productListController.addressList[index].district,
+        );
+      })),
+      DataCell(Observer(builder: (context) {
+        return Text(
+          productListController.addressList[index].city,
+        );
+      })),
+      DataCell(Observer(builder: (context) {
+        return Text(
+          productListController.addressList[index].uf,
+        );
+      })),
+      DataCell(Observer(builder: (context) {
+        return Text(
+          productListController.addressList[index].cep,
+        );
       })),
       DataCell(
         Builder(builder: (context) {
-          if (index <= (productListController.productList.length - 1)) {
+          if (index <= (productListController.addressList.length - 1)) {
             return Tooltip(
               message: "Editar Produto",
               child: InkWell(
-                onTap: () =>
-                    productListController.setProductDetailsAndGoToDetails(
-                  productListController.productList[index],
-                ),
+                onTap: () {},
                 child: const Icon(
                   Icons.edit_document,
-                  color: Colors.black54,
+                  color: WColor.primaryColor,
                 ),
               ),
             );
@@ -46,7 +70,7 @@ class AddressListRow extends DataTableSource {
   bool get isRowCountApproximate => false;
 
   @override
-  int get rowCount => productListController.productList.length;
+  int get rowCount => productListController.addressList.length;
 
   set rowCount(int newValue) {
     rowCount = newValue;
