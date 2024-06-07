@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:test_7pay/app/core/style/color.dart';
 import 'package:test_7pay/app/core/style/size.dart';
-import 'package:test_7pay/app/core/style/text.dart';
-import 'package:test_7pay/app/modules/main/components/sidebar/sidebar_content_minimized_page.dart';
 import 'package:test_7pay/app/modules/main/components/sidebar/sidebar_content_page.dart';
-import 'package:test_7pay/app/modules/main/controllers/main_controller.dart';
+import 'package:test_7pay/app/modules/main/components/sidebar/sidebar_mobile/sidebar_logo_mobile_page.dart';
+import 'package:test_7pay/app/modules/main/components/sidebar/sidebar_mobile/sidebar_text_user_mobile.dart';
 import 'package:test_7pay/app/shared/widgets/spacing/divider_h.dart';
 
 class SidebarMobilePage extends StatelessWidget {
-  SidebarMobilePage({super.key});
-
-  final _controller = Modular.get<MainController>();
+  const SidebarMobilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,32 +37,13 @@ class SidebarMobilePage extends StatelessWidget {
           width: context.w(.8),
           child: ListView(
             padding: EdgeInsets.zero,
-            children: [
-              Image.asset(
-                'assets/images/logos/logo.png',
-                scale: 2,
-              ),
-              const SpacingH(.02),
+            children: const [
+              SidebarLogoMobilePage(),
+              SpacingH(.02),
               Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Column(
-                      children: [
-                        Text(
-                          'Olá, Matheus',
-                          style:
-                              const TextStyle().textRegular(12, Colors.white),
-                        ),
-                        const Divider(
-                          color: Colors.white12,
-                        ),
-                      ],
-                    ),
-                  ),
-                  (!_controller.menuClick)
-                      ? const SidebarContentPage()
-                      : const SidebarContentMinimizedPage(),
+                  SidebarTextUserMobile(),
+                  SidebarContentPage(),
                 ],
               ),
             ],

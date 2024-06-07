@@ -63,8 +63,10 @@ class SidebarContentItemPage extends StatelessWidget {
                   ),
                 ),
               ),
-              onTap: () =>
-                  _controller.setItemSidebarSelectedAnfGoToRouter(item),
+              onTap: () => {
+                _controller.setItemSidebarSelectedAnfGoToRouter(item),
+                if (context.isMobile) Modular.to.pop(),
+              },
             ),
           ] else ...[
             ListTile(
@@ -110,8 +112,10 @@ class SidebarContentItemPage extends StatelessWidget {
                   ),
                 ),
               ),
-              onTap: () =>
-                  _controller.setItemSidebarSelectedAnfGoToRouter(item),
+              onTap: () => {
+                _controller.setItemSidebarSelectedAnfGoToRouter(item),
+                if (context.isMobile) Modular.to.pop(),
+              },
             ),
           ],
         ],
