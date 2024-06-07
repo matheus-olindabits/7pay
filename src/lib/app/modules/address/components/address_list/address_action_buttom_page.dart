@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:test_7pay/app/core/style/color.dart';
+import 'package:test_7pay/app/modules/address/components/address_create/address_dialog_create_page.dart';
 import 'package:test_7pay/app/modules/address/controllers/address_controller.dart';
 import 'package:test_7pay/app/shared/widgets/spacing/divider_w.dart';
 
@@ -30,7 +31,9 @@ class AddressActionButtomPage extends StatelessWidget {
         const SpacingW(.01),
         FloatingActionButton(
           backgroundColor: WColor.primaryColor,
-          onPressed: () {},
+          onPressed: () {
+            showCustomDialog();
+          },
           tooltip: 'Cadastrar Endereço',
           child: const Icon(Icons.assignment_add),
         ),

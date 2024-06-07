@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:test_7pay/app/core/style/text.dart';
-import 'package:test_7pay/app/modules/address/components/address_list_rows_page.dart';
+import 'package:test_7pay/app/modules/address/components/address_list/address_list_rows_page.dart';
 import 'package:test_7pay/app/modules/address/controllers/address_controller.dart';
 
 class AddressListPaginateTablePage extends StatelessWidget {

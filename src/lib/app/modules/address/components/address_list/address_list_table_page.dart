@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:test_7pay/app/core/style/color.dart';
-import 'package:test_7pay/app/modules/address/components/address_list_paginate_table_page.dart';
+import 'package:test_7pay/app/modules/address/components/address_list/address_list_paginate_table_page.dart';
 import 'package:test_7pay/app/modules/address/controllers/address_controller.dart';
 import 'package:test_7pay/app/shared/enum/text_not_found_enum.dart';
 import 'package:test_7pay/app/shared/widgets/content/empty_content.dart';

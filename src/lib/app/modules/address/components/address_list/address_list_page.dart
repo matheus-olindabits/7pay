@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:test_7pay/app/modules/address/components/address_action_buttom_page.dart';
-import 'package:test_7pay/app/modules/address/components/address_list_filter_page.dart';
-import 'package:test_7pay/app/modules/address/components/address_list_table_page.dart';
+import 'package:test_7pay/app/modules/address/components/address_list/address_action_buttom_page.dart';
+import 'package:test_7pay/app/modules/address/components/address_list/address_list_filter_page.dart';
+import 'package:test_7pay/app/modules/address/components/address_list/address_list_table_page.dart';
 import 'package:test_7pay/app/shared/enum/page_name_enum.dart';
 import 'package:test_7pay/app/shared/widgets/header/header_default_page.dart';
 import 'package:test_7pay/app/shared/widgets/spacing/divider_h.dart';

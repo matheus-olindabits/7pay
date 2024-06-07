@@ -43,6 +43,9 @@ abstract class AddressControllerBase with Store {
   @observable
   bool isRowCountLessDefaultRowsPerPage = false;
 
+  @observable
+  String addressCreateType = 'cep';
+
   @action
   void initializePageCount() {
     var tableItemsCount = addressList.length;
@@ -59,5 +62,10 @@ abstract class AddressControllerBase with Store {
       rowsPerPage = value;
       rowsPerPageAlter = value;
     }
+  }
+
+  @action
+  void setAddressCreateType(String value) {
+    addressCreateType = value;
   }
 }

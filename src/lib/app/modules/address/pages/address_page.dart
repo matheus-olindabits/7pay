@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_7pay/app/core/style/color.dart';
 import 'package:test_7pay/app/core/style/size.dart';
-import 'package:test_7pay/app/modules/address/components/address_list_page.dart';
+import 'package:test_7pay/app/modules/address/components/address_list/address_list_page.dart';
 
 class AddressPage extends StatelessWidget {
   const AddressPage({super.key});

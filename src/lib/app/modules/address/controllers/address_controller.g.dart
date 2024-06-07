@@ -75,6 +75,22 @@ mixin _$AddressController on AddressControllerBase, Store {
     });
   }
 
+  late final _$addressCreateTypeAtom =
+      Atom(name: 'AddressControllerBase.addressCreateType', context: context);
+
+  @override
+  String get addressCreateType {
+    _$addressCreateTypeAtom.reportRead();
+    return super.addressCreateType;
+  }
+
+  @override
+  set addressCreateType(String value) {
+    _$addressCreateTypeAtom.reportWrite(value, super.addressCreateType, () {
+      super.addressCreateType = value;
+    });
+  }
+
   late final _$AddressControllerBaseActionController =
       ActionController(name: 'AddressControllerBase', context: context);
 
@@ -101,12 +117,24 @@ mixin _$AddressController on AddressControllerBase, Store {
   }
 
   @override
+  void setAddressCreateType(String value) {
+    final _$actionInfo = _$AddressControllerBaseActionController.startAction(
+        name: 'AddressControllerBase.setAddressCreateType');
+    try {
+      return super.setAddressCreateType(value);
+    } finally {
+      _$AddressControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 addressList: ${addressList},
 rowsPerPage: ${rowsPerPage},
 rowsPerPageAlter: ${rowsPerPageAlter},
-isRowCountLessDefaultRowsPerPage: ${isRowCountLessDefaultRowsPerPage}
+isRowCountLessDefaultRowsPerPage: ${isRowCountLessDefaultRowsPerPage},
+addressCreateType: ${addressCreateType}
     ''';
   }
 }

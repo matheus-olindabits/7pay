@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:test_7pay/app/core/style/size.dart';
 import 'package:test_7pay/app/shared/widgets/spacing/divider_w.dart';
 
@@ -23,11 +22,11 @@ class AddressListFilterPage extends StatelessWidget {
               counterText: "",
               enabledBorder: OutlineInputBorder(
                 borderSide: const BorderSide(color: Colors.black26),
-                borderRadius: BorderRadius.circular(40),
+                borderRadius: BorderRadius.circular(10),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: const BorderSide(color: Colors.black26),
-                borderRadius: BorderRadius.circular(40),
+                borderRadius: BorderRadius.circular(10),
               ),
               hintText: 'Busque pelo bairro',
               hintStyle: TextStyle(
@@ -54,11 +53,11 @@ class AddressListFilterPage extends StatelessWidget {
               counterText: "",
               enabledBorder: OutlineInputBorder(
                 borderSide: const BorderSide(color: Colors.black26),
-                borderRadius: BorderRadius.circular(40),
+                borderRadius: BorderRadius.circular(10),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: const BorderSide(color: Colors.black26),
-                borderRadius: BorderRadius.circular(40),
+                borderRadius: BorderRadius.circular(10),
               ),
               hintText: 'Busque pelo UF',
               hintStyle: TextStyle(
