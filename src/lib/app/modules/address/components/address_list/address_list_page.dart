@@ -19,7 +19,7 @@ class AddressListPage extends StatelessWidget {
         ),
         AddressActionButtomPage(),
         const SpacingH(.02),
-        const AddressListFilterPage(),
+        AddressListFilterPage(),
         const SpacingH(.02),
         AddressListTablePage(),
       ],

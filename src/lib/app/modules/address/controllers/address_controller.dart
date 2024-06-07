@@ -104,8 +104,14 @@ abstract class AddressControllerBase with Store {
   @observable
   bool openToSelect = false;
 
+  @observable
+  String filter = '';
+
+  @observable
+  String ufFilter = '';
+
   @action
-  void initializePageCount() {
+  void initializePaginatedDataTable() {
     var tableItemsCount = addressList.length;
     var defaultRowsPerPage = PaginatedDataTable.defaultRowsPerPage;
     isRowCountLessDefaultRowsPerPage = tableItemsCount < defaultRowsPerPage;
@@ -148,6 +154,16 @@ abstract class AddressControllerBase with Store {
   }
 
   @action
+  void setFilter(String value) {
+    filter = value;
+  }
+
+  @action
+  void setUfFilter(String value) {
+    ufFilter = value;
+  }
+
+  @action
   void setAttributesToCreate() {
     openToSelect = false;
     addressListToSelect = [];
@@ -177,6 +193,37 @@ abstract class AddressControllerBase with Store {
         listAddress();
       }
     }
+  }
+
+  @computed
+  List<Address> get addressListFiltered {
+    if (filter.isEmpty && ufFilter.isEmpty) {
+      return addressList;
+    } else if (filter.isNotEmpty && ufFilter.isEmpty) {
+      return addressList
+          .where((item) =>
+              item.district.toLowerCase().contains(filter.toLowerCase()))
+          .toList();
+    } else if (filter.isEmpty && ufFilter.isNotEmpty) {
+      return addressList
+          .where(
+            (item) => item.uf.toLowerCase().contains(ufFilter.toLowerCase()),
+          )
+          .toList();
+    } else {
+      return addressList
+          .where(
+            (item) =>
+                item.district.toLowerCase().contains(filter.toLowerCase()) &&
+                item.uf.toLowerCase().contains(ufFilter.toLowerCase()),
+          )
+          .toList();
+    }
+  }
+
+  void clearFilter() {
+    setFilter('');
+    setUfFilter('');
   }
 
   @action

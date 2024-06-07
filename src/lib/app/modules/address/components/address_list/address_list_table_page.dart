@@ -15,10 +15,10 @@ class AddressListTablePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Observer(builder: (context) {
-      _controller.initializePageCount();
+      _controller.initializePaginatedDataTable();
       return Column(
         children: [
-          (_controller.addressList.isNotEmpty)
+          (_controller.addressListFiltered.isNotEmpty)
               ? SizedBox(
                   width: double.infinity,
                   child: Theme(
