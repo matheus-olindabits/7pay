@@ -6,6 +6,7 @@ class Address {
   String district;
   String city;
   String uf;
+  String ibge;
   String? complement;
   Address({
     required this.cep,
@@ -13,6 +14,7 @@ class Address {
     required this.district,
     required this.city,
     required this.uf,
+    required this.ibge,
     this.complement,
   });
 
@@ -23,6 +25,7 @@ class Address {
       'district': district,
       'city': city,
       'uf': uf,
+      'ibge': ibge,
       'complement': complement,
     };
   }
@@ -34,6 +37,7 @@ class Address {
       district: map['bairro'] as String,
       city: map['localidade'] as String,
       uf: map['uf'] as String,
+      ibge: map['ibge'] as String,
       complement:
           map['complement'] != null ? map['complement'] as String : null,
     );

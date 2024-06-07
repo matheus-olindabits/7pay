@@ -42,7 +42,7 @@ class AddressListRow extends DataTableSource {
       })),
       DataCell(Observer(builder: (context) {
         return Text(
-          productListController.addressList[index].cep,
+          productListController.addressList[index].ibge,
         );
       })),
       DataCell(

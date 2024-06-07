@@ -22,6 +22,7 @@ abstract class AddressControllerBase with Store {
       district: "bairro Y",
       city: "cidade Y",
       uf: "Estado Y",
+      ibge: "8899",
     ),
     Address(
       cep: "12345-678",
@@ -29,6 +30,7 @@ abstract class AddressControllerBase with Store {
       district: "bairro Y",
       city: "cidade Y",
       uf: "Estado Y",
+      ibge: "8899",
     ),
   ]);
 
