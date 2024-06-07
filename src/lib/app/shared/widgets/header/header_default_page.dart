@@ -3,10 +3,10 @@ import 'package:test_7pay/app/core/style/size.dart';
 import 'package:test_7pay/app/core/style/text.dart';
 import 'package:test_7pay/app/shared/widgets/spacing/divider_w.dart';
 
-class HeaderPage extends StatelessWidget {
+class HeaderDefaultPage extends StatelessWidget {
   final String name;
   final IconData icon;
-  const HeaderPage({super.key, required this.name, required this.icon});
+  const HeaderDefaultPage({super.key, required this.name, required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +26,13 @@ class HeaderPage extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        const Icon(
-                          Icons.location_on_sharp,
+                        Icon(
+                          icon,
                           color: Colors.black,
                         ),
                         const SpacingW(.005),
                         Text(
-                          'Endereço',
+                          name,
                           style: const TextStyle().textBold(16),
                         ),
                       ],

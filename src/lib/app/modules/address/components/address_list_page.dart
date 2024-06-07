@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_7pay/app/shared/enum/page_name_enum.dart';
-import 'package:test_7pay/app/shared/widgets/header/header_page.dart';
+import 'package:test_7pay/app/shared/widgets/header/header_default_page.dart';
 
 class AddressListPage extends StatelessWidget {
   const AddressListPage({super.key});
@@ -9,7 +9,8 @@ class AddressListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        HeaderPage(name: PageName.address.name, icon: Icons.location_on_sharp),
+        HeaderDefaultPage(
+            name: PageName.address.name, icon: Icons.location_on_sharp),
       ],
     );
   }
