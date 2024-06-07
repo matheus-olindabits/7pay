@@ -28,7 +28,7 @@ abstract class MainControllerBase with Store {
       Modular.to.navigate(RouterApp.dashboard);
     } else if (item == ItemSidebarSelected.address.name) {
       itemSidebarSelected = ItemSidebarSelected.address.name;
-      Modular.to.navigate(RouterApp.dashboard);
+      Modular.to.navigate(RouterApp.address);
     }
   }
 }

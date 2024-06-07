@@ -46,7 +46,7 @@ class SidebarSettingsPage extends StatelessWidget {
           ),
           ListTile(
             title: Text(
-              'Redefinir Senha',
+              'Minha Conta',
               style: const TextStyle().textBold(14),
             ),
             onTap: () => Modular.to.pop(),

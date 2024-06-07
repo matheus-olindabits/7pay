@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:test_7pay/app/modules/address/address_module.dart';
 import 'package:test_7pay/app/modules/dashboard/dashboard_module.dart';
 import 'package:test_7pay/app/modules/main/controllers/main_controller.dart';
 import 'package:test_7pay/app/modules/main/pages/main_page.dart';
@@ -15,7 +16,14 @@ class AppModule extends Module {
           Modular.initialRoute,
           child: (_, args) => MainPage(),
           children: [
-            ModuleRoute('/dashboard/', module: DashboardModule()),
+            ModuleRoute(
+              '/dashboard/',
+              module: DashboardModule(),
+            ),
+            ModuleRoute(
+              '/address/',
+              module: AddressModule(),
+            ),
           ],
         ),
       ];
