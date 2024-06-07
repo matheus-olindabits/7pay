@@ -18,7 +18,7 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       key: _scaffoldKey,
       drawer: (context.isMobile) ? SidebarMobilePage() : null,
-      endDrawer: SidebarSettingsPage(),
+      endDrawer: const SidebarSettingsPage(),
       appBar: (context.isMobile)
           ? MainAppbarPage(
               callback: () => _scaffoldKey.currentState!.openEndDrawer(),
