@@ -17,7 +17,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      drawer: (context.isMobile) ? SidebarMobilePage() : null,
+      drawer: (context.isMobile) ? const SidebarMobilePage() : null,
       endDrawer: const SidebarSettingsPage(),
       appBar: (context.isMobile)
           ? MainAppbarPage(
