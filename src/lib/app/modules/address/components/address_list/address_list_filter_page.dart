@@ -76,21 +76,20 @@ class AddressListFilterPage extends StatelessWidget {
             dropdownColor: Colors.white,
             items: _controller.ufList
                 .map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
+              if (value.isNotEmpty) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              } else {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: const Text('Selecione um UF'),
+                );
+              }
             }).toList(),
-            //value: _controller.ufFilter,
+            value: _controller.ufFilter,
             onChanged: (value) => _controller.setUfFilter(value!),
-          ),
-        ),
-        const SpacingW(.005),
-        IconButton(
-          onPressed: () => _controller.clearFilter(),
-          tooltip: 'Limpar Filtro',
-          icon: const Icon(
-            Icons.filter_alt_off_outlined,
           ),
         ),
       ],

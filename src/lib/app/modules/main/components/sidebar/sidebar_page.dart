@@ -45,7 +45,7 @@ class SidebarPage extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/images/logos/logo.png',
-                scale: 2,
+                scale: 1.5,
               ),
               Align(
                 alignment: Alignment.centerRight,

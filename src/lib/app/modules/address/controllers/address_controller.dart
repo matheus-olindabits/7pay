@@ -42,6 +42,7 @@ abstract class AddressControllerBase with Store {
   ]);
 
   final List<String> ufList = [
+    '',
     'AC',
     'AL',
     'AP',
@@ -96,7 +97,7 @@ abstract class AddressControllerBase with Store {
   String city = '';
 
   @observable
-  String uf = 'GO';
+  String uf = '';
 
   @observable
   bool loading = false;
@@ -219,11 +220,6 @@ abstract class AddressControllerBase with Store {
           )
           .toList();
     }
-  }
-
-  void clearFilter() {
-    setFilter('');
-    setUfFilter('');
   }
 
   @action

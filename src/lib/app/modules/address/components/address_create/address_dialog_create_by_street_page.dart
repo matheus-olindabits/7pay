@@ -79,15 +79,23 @@ class AddressDialogCreateByStreetPage extends StatelessWidget {
                     filled: true,
                   ),
                   dropdownColor: Colors.white,
-                  validator: (value) =>
-                      value == null ? "Selecione um estado" : null,
+                  validator: (value) => (value == null || value.isEmpty)
+                      ? "Selecione um estado"
+                      : null,
                   value: _controller.uf,
                   items: _controller.ufList
                       .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
+                    if (value.isNotEmpty) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    } else {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: const Text('Selecione um UF'),
+                      );
+                    }
                   }).toList(),
                   onChanged: (value) => _controller.setUf(value!),
                 ),
