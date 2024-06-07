@@ -12,12 +12,9 @@ class AddressPage extends StatelessWidget {
       body: SizedBox(
         width: double.infinity,
         child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(context.h(.05)),
-            child: (context.isMobile)
-                ? const AddressListPage()
-                : const AddressListPage(),
-          ),
+          child: (context.isMobile)
+              ? const AddressListPage()
+              : const AddressListPage(),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
