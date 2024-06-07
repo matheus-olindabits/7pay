@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:test_7pay/app/modules/address/components/address_action_buttom_page.dart';
+import 'package:test_7pay/app/modules/address/components/address_list_filter_page.dart';
 import 'package:test_7pay/app/modules/address/components/address_list_table_page.dart';
 import 'package:test_7pay/app/shared/enum/page_name_enum.dart';
 import 'package:test_7pay/app/shared/widgets/header/header_default_page.dart';
+import 'package:test_7pay/app/shared/widgets/spacing/divider_h.dart';
 
 class AddressListPage extends StatelessWidget {
   const AddressListPage({super.key});
@@ -16,6 +18,9 @@ class AddressListPage extends StatelessWidget {
           icon: Icons.location_on_sharp,
         ),
         AddressActionButtomPage(),
+        const SpacingH(.02),
+        const AddressListFilterPage(),
+        const SpacingH(.02),
         AddressListTablePage(),
       ],
     );

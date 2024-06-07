@@ -24,7 +24,7 @@ class SidebarPage extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: const LinearGradient(
               begin: Alignment.topCenter,
-              end: Alignment(4, 2),
+              end: Alignment(1, 4),
               colors: [WColor.primaryColor, WColor.secondColor],
             ),
             borderRadius: const BorderRadius.all(

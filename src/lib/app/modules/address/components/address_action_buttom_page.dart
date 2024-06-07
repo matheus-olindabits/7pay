@@ -15,6 +15,13 @@ class AddressActionButtomPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         FloatingActionButton(
+          backgroundColor: WColor.dark,
+          onPressed: () {},
+          tooltip: 'Download',
+          child: const Icon(Icons.download),
+        ),
+        const SpacingW(.01),
+        FloatingActionButton(
           backgroundColor: WColor.secondColor,
           onPressed: () {},
           tooltip: 'Atualizar',
@@ -25,7 +32,7 @@ class AddressActionButtomPage extends StatelessWidget {
           backgroundColor: WColor.primaryColor,
           onPressed: () {},
           tooltip: 'Cadastrar Endereço',
-          child: const Icon(Icons.post_add_sharp),
+          child: const Icon(Icons.assignment_add),
         ),
       ],
     );

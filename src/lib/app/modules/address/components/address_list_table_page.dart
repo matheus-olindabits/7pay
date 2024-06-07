@@ -6,7 +6,6 @@ import 'package:test_7pay/app/modules/address/components/address_list_paginate_t
 import 'package:test_7pay/app/modules/address/controllers/address_controller.dart';
 import 'package:test_7pay/app/shared/enum/text_not_found_enum.dart';
 import 'package:test_7pay/app/shared/widgets/content/empty_content.dart';
-import 'package:test_7pay/app/shared/widgets/spacing/divider_h.dart';
 
 class AddressListTablePage extends StatelessWidget {
   AddressListTablePage({super.key});
@@ -19,7 +18,6 @@ class AddressListTablePage extends StatelessWidget {
       _controller.initializePageCount();
       return Column(
         children: [
-          const SpacingH(.02),
           (_controller.addressList.isNotEmpty)
               ? SizedBox(
                   width: double.infinity,
