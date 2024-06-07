@@ -29,6 +29,12 @@ abstract class MainControllerBase with Store {
     } else if (item == ItemSidebarSelected.address.name) {
       itemSidebarSelected = ItemSidebarSelected.address.name;
       Modular.to.navigate(RouterApp.address);
+    } else if (item == ItemSidebarSelected.financial.name) {
+      itemSidebarSelected = ItemSidebarSelected.financial.name;
+      Modular.to.navigate(RouterApp.progress);
+    } else if (item == ItemSidebarSelected.card.name) {
+      itemSidebarSelected = ItemSidebarSelected.card.name;
+      Modular.to.navigate(RouterApp.progress);
     }
   }
 }

@@ -21,6 +21,10 @@ class SidebarContentMinimizedPage extends StatelessWidget {
           item: ItemSidebarSelected.financial.name,
           icon: Icons.attach_money_outlined,
         ),
+        SidebarContentItemMinimizedPage(
+          item: ItemSidebarSelected.card.name,
+          icon: Icons.credit_card,
+        ),
       ],
     );
   }

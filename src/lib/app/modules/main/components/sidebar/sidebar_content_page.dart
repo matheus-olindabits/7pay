@@ -24,6 +24,11 @@ class SidebarContentPage extends StatelessWidget {
           itemName: 'Financeiro',
           icon: Icons.attach_money_outlined,
         ),
+        SidebarContentItemPage(
+          item: ItemSidebarSelected.card.name,
+          itemName: 'Cartões',
+          icon: Icons.credit_card,
+        ),
       ],
     );
   }

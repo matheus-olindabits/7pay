@@ -26,9 +26,9 @@ class AppModule extends Module {
               '/address/',
               module: AddressModule(),
             ),
+            ChildRoute('/progress/', child: (_, args) => const ProgressPage()),
           ],
         ),
         WildcardRoute(child: (_, args) => const NotFoundPage()),
-        ChildRoute('/progress/', child: (_, args) => const ProgressPage()),
       ];
 }

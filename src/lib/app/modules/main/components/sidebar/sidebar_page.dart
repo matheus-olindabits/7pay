@@ -3,9 +3,10 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:test_7pay/app/core/style/color.dart';
 import 'package:test_7pay/app/core/style/size.dart';
-import 'package:test_7pay/app/core/style/text.dart';
 import 'package:test_7pay/app/modules/main/components/sidebar/sidebar_content_minimized_page.dart';
 import 'package:test_7pay/app/modules/main/components/sidebar/sidebar_content_page.dart';
+import 'package:test_7pay/app/modules/main/components/sidebar/sidebar_logo_and_action_page.dart';
+import 'package:test_7pay/app/modules/main/components/sidebar/sidebar_text_user_page.dart';
 import 'package:test_7pay/app/modules/main/controllers/main_controller.dart';
 import 'package:test_7pay/app/shared/widgets/spacing/divider_h.dart';
 
@@ -43,40 +44,12 @@ class SidebarPage extends StatelessWidget {
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
-              Image.asset(
-                'assets/images/logos/logo.png',
-                scale: 1.5,
-              ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: IconButton(
-                  icon: Icon(
-                    (!_controller.menuClick)
-                        ? Icons.arrow_left_outlined
-                        : Icons.arrow_right_outlined,
-                    color: Colors.white,
-                  ),
-                  onPressed: () => _controller.setMenuClick(),
-                ),
-              ),
+              const SpacingH(.02),
+              SidebarLogoAndActionPage(),
               const SpacingH(.02),
               Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Column(
-                      children: [
-                        Text(
-                          'Olá, Matheus',
-                          style:
-                              const TextStyle().textRegular(12, Colors.white),
-                        ),
-                        const Divider(
-                          color: Colors.white12,
-                        ),
-                      ],
-                    ),
-                  ),
+                  const SidebarTextUserPage(),
                   (!_controller.menuClick)
                       ? const SidebarContentPage()
                       : const SidebarContentMinimizedPage(),
